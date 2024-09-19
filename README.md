@@ -1,5 +1,9 @@
 ## Proyecto Data Analytics 
 
+<p align="right">
+    <img src="Jess-perfil.png" alt="Perfil de Jess" width="200"/>
+</p>
+
 ***Título del proyecto:*** Análisis de satisfacción en ventas de celulares en la empresa Europe Mobile Distributors.
 
 ***Iniciativa de análisis:*** Mejora en la satisfacción de los clientes que manifiestan disconformidad.
