@@ -1,8 +1,6 @@
 ## Proyecto Data Analytics 
 
-<div align="right">
-    <img src="Jess-perfil.png" alt="Perfil de Jess" width="200"/>
-</div>
+<img align="right" alt="Jess-perfil" width="150" src="https://github.com/JessBasile/Dashboard-Celulares/raw/main/imagenes/Jess-perfil.png">
 
 ***Título del proyecto:*** Análisis de satisfacción en ventas de celulares en la empresa Europe Mobile Distributors.
 
