@@ -60,6 +60,7 @@ El dataset de Venta de Celulares fue elegido dentro de un grupo de opciones prop
 A continuación, se describen las distintas tablas del modelo especificando las llaves primarias y foráneas.
 
 + ***Tabla Ventas:*** Contiene el detalle de las ventas discriminado el número de factura, cantidad, precio y costo. En el caso de la factura, articulo, marca, cliente y país figuran con sus abreviaciones.
+
 `PK:` ID Venta Articulo
 `FK:` ID Factura
 `FK:` ID Articulo
