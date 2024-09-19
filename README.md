@@ -6,6 +6,8 @@
 
 ***Iniciativa de análisis:*** Mejora en la satisfacción de los clientes que manifiestan disconformidad.
 
+***Autora:*** Jesica Brenda Basile
+
 ***Fecha de presentación:*** 16/03/2024
 
 ## Tabla de versiones
