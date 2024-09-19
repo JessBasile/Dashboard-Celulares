@@ -43,6 +43,8 @@ El tablero de control se encuentra dirigido al nivel táctico, principalmente a 
 
 El diagrama de ER permite visualizar la relación de los datos y de las diferentes tablas. Dentro del mismo, se identifican las claves primarias y foráneas con todos los campos que contienen cada una de las tablas.
 
+![Diagrama de Venta de Celulares](imagenes/Diagrama%20Venta%20Celulares.jpg)
+
 ## Herramientas tecnológicas implementadas
 
 Para el presente trabajo se utilizaron los siguientes programas:
