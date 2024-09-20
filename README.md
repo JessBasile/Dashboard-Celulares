@@ -220,4 +220,50 @@ A continuación, se describen las distintas tablas del modelo especificando [ún
 
 ***CIUDAD***
 
+| CAMPO      | TIPO DE DATO | TIPO DE CLAVE |
+|------------|--------------|---------------|
+| ID Ciudad  | INT          | PK            |
+| Ciudad     | TEXT(50)     |               |
 
+***MARCA***
+
+| CAMPO      | TIPO DE DATO | TIPO DE CLAVE |
+|------------|--------------|---------------|
+| ID Ciudad  | INT          | PK            |
+| Ciudad     | TEXT(50)     |               |
+
+***FACTURAS***
+
+| CAMPO        | TIPO DE DATO  | TIPO DE CLAVE |
+|--------------|----------------|---------------|
+| ID Factura   | INT            | PK            |
+| Nro Factura  | VARCHAR(20)    |               |
+| Fecha        | DATETIME       |               |
+| ID Pago      | INT            |               |
+| ID Review    | INT            | FK            |
+
+***REVIEW***
+
+| CAMPO      | TIPO DE DATO | TIPO DE CLAVE |
+|------------|--------------|---------------|
+| ID Review  | INT          | PK            |
+| Review     | VARCHAR(10)  |               |
+
+## Modificaciones abordadas en Power Query
+
+Una vez exportadas las tablas en Power Bi y durante el proceso de elaboración del dashboard se identificó la necesidad de efectuar diversas modificaciones desde Power Query para mejorar la calidad de la información y exposición en el tablero de control.
+
+## Transformaciones de las tablas
+
++ ***Tabla Empresas Envío:*** La modificación incorporada sobre la tabla envío consistió en la incorporación de una nueva columna denominada “Imagen”, cuyo tipo de dato es texto, y contiene los URL de imágenes en formato png para utilizarlas en la visualización ChicleySlicer. La fórmula condicional elaborada es la siguiente:
+```sql
+Imagen = if [ID Envio] = 1 then "https://raw.githubusercontent.com/VanFolken/img_logos/main/DHL.png" else if [ID Envio] = 2 then "https://raw.githubusercontent.com/VanFolken/img_logos/main/FEDEX.png" else if [ID Envio] = 3 then "https://raw.githubusercontent.com/VanFolken/img_logos/main/UPS.png" else if [ID Envio] = 4 then "https://raw.githubusercontent.com/VanFolken/img_logos/main/DB- SCHENKER.png" else if [ID Envio] = 5 then "https://raw.githubusercontent.com/VanFolken/img_logos/main/TNT.png" else "Otro")
+```
+
++ ***Tabla Facturas:*** Se incorporaron dos columnas “Tipo Review” y “Nivel Conformidad” con tipo de dato texto. En la primera se clasifican los ID Review en seis categorías a las que se les asigna un nombre específico, y en la segunda se agrupa en categorías más amplias, de acuerdo a las siguientes fórmulas:
+```sql
+Tipo Review = if [Tipo Review] = "Insatisfecho" or [Tipo Review] = "Poco Satisfecho" then "Disconforme" else if [Tipo Review] = "Satisfecho" or [Tipo Review] = "Muy Satisfecho" then "Conforme" else if [Tipo Review] = "Neutro" then "Neutro" else "Sin Reseña"
+```
+```sql
+Nivel Conformidad = if [ID Review] = 1 then "Sin Calificar" else if [ID Review] = 2 then "Insatisfecho" else if [ID Review] = 3 then "Poco Satisfecho" else if [ID Review] = 4 then "Neutro" else if [ID Review] = 5 then "Satisfecho" else "Muy Satisfecho")
+```
