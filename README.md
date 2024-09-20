@@ -22,6 +22,22 @@
 - [Descripción de la temática](#Descripción-de-la-temática)
 - [Objetivo](#Objetivo)
 - [Alcance](#Alcance)
+- [Usuario Final](#Usuario-Final)
+- [Diagrama de Entidad-Relación](#Diagrama-de-Entidad-Relación)
+- [Herramientas tecnológicas implementadas](#Herramientas-tecnológicas-implementadas)
+- [Dataset](#Dataset)
+- [Listado de Tablas](#Listado-de-Tablas)
+- [Listado de columnas por tablas](#Listado-de-columnas-por-tablas)
+- [Modificaciones abordadas en Power Query](#Modificaciones-abordadas-en-Power-Query)
+- [Transformaciones de las tablas](#Transformaciones-de-las-tablas)
+- [Nuevas tablas incorporadas](#Nuevas-tablas-incorporadas)
+- [Diagrama de entidad-relación en Power Bi](#Diagrama-de-entidad-relación-en-Power-Bi)
+- [Medidas calculadas](#Medidas-calculadas)
+- [Segmentaciones elegidas](#Segmentaciones-elegidas)
+- [Análisis funcional del tablero](#Análisis-funcional-del-tablero)
+- [Conclusión](#Conclusión)
+- [Líneas futuras](#Líneas-futuras)
+- [Referencias](#Referencias)
 
 ## Tabla de versiones
 
@@ -516,7 +532,7 @@ IF(ISBLANK(_ventasinresenas), 0, _ventasinresenas)
 ***Finalidad:*** Esta medida se obtiene con ayuda de una variable encargada de contar la cantidad de facturas que fueron emitidas, pero no fueron calificadas por los clientes. A su vez, al final de la fórmula se aplica una restricción, para que en caso que el resultado sea “en blanco” de cero y al segmentar figure el número en lugar de la palabra.
 
 ---
-***MEDIDA DE TENDENCIA CENTRAL***
+***MEDIDAS DE TENDENCIA CENTRAL***
 ---
 ***Medida:*** _Cuartil 1_
 ```sql
