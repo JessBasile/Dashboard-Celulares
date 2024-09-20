@@ -3,7 +3,7 @@
     <img src="https://raw.githubusercontent.com/JessBasile/Dashboard-Celulares/main/imagenes/analitycs.gif" alt="Descripción del GIF" style="max-width: 100px; height: auto;">
 </p>
 
-## Proyecto Data Analytics 
+### Proyecto Data Analytics 
 
 <img align="right" alt="Jess-perfil" width="200" src="https://github.com/JessBasile/Dashboard-Celulares/raw/main/imagenes/Jess-perfil.png">
 
@@ -625,7 +625,7 @@ En consideración al objetivo y alcance del proyecto, se utilizaron distintas se
 
 ***Páginas de reseñas***
 
-![segmentacion](imagenes/segmentaciones.png)
+![segmentacion](imagenes/segmentacionn.png)
 
 En la pestaña reseñas se crearon 2 segmentadores para filtrar por año y por empresa de envíos, lo que permite determinar las fluctuaciones que se experimentaron en las reseñas durante el año seleccionado y el nivel de satisfacción cuando intervienen las distintas empresas de envíos involucradas en cada venta que fue reseñada.
 
