@@ -1,7 +1,5 @@
 
-<p align="center">
-    <img src="https://raw.githubusercontent.com/JessBasile/Dashboard-Celulares/main/imagenes/analitycs.gif" alt="Descripción del GIF" style="max-width: 100px; height: auto;">
-</p>
+
 
 
 ## Proyecto Data Analytics 
@@ -510,5 +508,4 @@ IF(ISBLANK(_ventasinresenas), 0, _ventasinresenas)
 
 ---
 ## MEDIDA DE TENDENCIA CENTRAL
-
 ---
