@@ -17,9 +17,9 @@
 
 ## Índice
 
-- [Tabla de versiones](#Tabla de versiones)
+- [Tabla de versiones](#Tabla-de-versiones)
 - [Instroducción](#Introducción)
-- [Descripción de la temática](#Descripción de la temática)
+- [Descripción de la temática](#Descripción-de-la-temática)
 - [Objetivo](#Objetivo)
 - [Alcance](#Alcance)
 
