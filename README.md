@@ -199,4 +199,25 @@ A continuación, se describen las distintas tablas del modelo especificando [ún
 
 ***CATEGORIA ARTÍCULO***
 
+| CAMPO             | TIPO DE DATO | TIPO DE CLAVE |
+|-------------------|--------------|---------------|
+| ID Cat Articulo   | INT          | PK            |
+| Categoria Articulo| TEXT(10)     |               |
+
+***TIPO DE PAGO***
+
+| CAMPO         | TIPO DE DATO | TIPO DE CLAVE |
+|---------------|--------------|---------------|
+| ID Pago       | INT          | PK            |
+| Tipo de Pago  | TEXT(50)     |               |
+
+***PAÍS***
+
+| CAMPO     | TIPO DE DATO | TIPO DE CLAVE |
+|-----------|--------------|---------------|
+| ID Pais   | INT          | PK            |
+| Pais      | TEXT(50)     |               |
+
+***CIUDAD***
+
 
