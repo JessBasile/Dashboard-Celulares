@@ -602,3 +602,38 @@ _Maximo
 ***Finalidad:*** Esta medida se obtiene a través de 2 variables, donde la primera permite determinar la cantidad de veces (recuento) que se repite cada valor en la columna Valor Venta Agrupada en la tabla de Ventas Agrupadas, mientras que la segunda variable identifica el máximo de los recuentos que se obtuvo anteriormente. De ese modo, se determina la frecuencia de la moda que será utilizada para sacar conclusiones en comparación con las demás medidas de tendencia central.
 
 ---
+***Medida:*** _Venta Moda MTC_
+```sql
+VAR _Tabla_Agrupada = SUMMARIZE('Ventas Agrupadas', 'Ventas Agrupadas'[Valor Venta Agrupada], "Recuento", COUNTROWS('Ventas Agrupadas'))
+VAR _Maximo = MAXX(_Tabla_Agrupada, [Recuento])
+VAR _Moda = FILTER(_Tabla_Agrupada, [Recuento] = _Maximo) RETURN
+UNICHAR(128181) & " " & CONCATENATEX(_Moda, 'Ventas Agrupadas'[Valor Venta Agrupada], " " & UNICHAR(119131) & " ")
+```
+***Finalidad:*** Esta medida se compone de 3 variables. La primera determina la cantidad de veces (recuento) que se repite cada valor en la columna Valor Venta Agrupada en la tabla de Ventas Agrupadas, la segunda variable calcula el máximo de los recuentos que se obtuvo anteriormente, y la tercera variable busca el valor de la venta que más se repite en la tabla agrupada a través del filtrado de la tabla agrupada cuando el recuento sea igual al máximo. De ese modo, se obtiene el valor de la moda, y posteriormente se concatenan las modas que logran detectarse.
+
+---
+***Medida:*** _Venta Promedio MTC_
+```sql
+AVERAGE('Ventas Agrupadas'[Valor Venta Agrupada])
+```
+***Finalidad:*** Esta medida calcula el promedio de los valores que están en la tabla de Ventas Agrupadas, en la columna Valor Venta Agrupada para poder compararlo luego con las demás medidas de tendencia y sacar conclusiones al respecto.
+
+---
+## Segmentaciones elegidas
+
+En consideración al objetivo y alcance del proyecto, se utilizaron distintas segmentaciones por página para facilitar el análisis:
+
+***Páginas de reseñas***
+
+
+
+En la pestaña reseñas se crearon 2 segmentadores para filtrar por año y por empresa de envíos, lo que permite determinar las fluctuaciones que se experimentaron en las reseñas durante el año seleccionado y el nivel de satisfacción cuando intervienen las distintas empresas de envíos involucradas en cada venta que fue reseñada.
+
+***Páginas Clientes***
+
+
+
+En la pestaña clientes se incluyeron 4 segmentadores para profundizar el análisis. En año permite identificar con mayor precisión la cantidad de ventas/facturas y reseñas que se realizaron durante el año seleccionado, mientras que las empresas de envíos facilita identificar la cantidad de clientes que usan cada proveedor de flete y si se tratan de clientes activo o inactivos, en el caso de la gama facilita la identificación de los clientes que adquieren las distintas categorías de los productos, y por último, el tipo de pago que revela los medios de pago más utilizados y priorizados por los consumidores.
+
+## Análisis funcional del tablero
+
