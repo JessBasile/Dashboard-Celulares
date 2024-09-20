@@ -324,3 +324,5 @@ Ventas Agrupadas = SUMMARIZE(Ventas, Ventas[ID Vta Articulos], "Valor Venta Agru
 
 ## Diagrama de entidad-relación en Power Bi
 
+
+![Diagrama de PBI](imagenes/DER-PBI.png)
