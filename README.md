@@ -1,3 +1,8 @@
+
+<p align="center">
+    <img src="https://github.com/JessBasile/Dashboard-Celulares/blob/main/analitycs.gif?raw=true" alt="Descripción del GIF" style="width: 100%; max-width: 800px; height: auto;">
+</p>
+
 ## Proyecto Data Analytics 
 
 <img align="right" alt="Jess-perfil" width="200" src="https://github.com/JessBasile/Dashboard-Celulares/raw/main/imagenes/Jess-perfil.png">
