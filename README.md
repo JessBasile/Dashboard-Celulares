@@ -164,4 +164,39 @@ A continuación, se describen las distintas tablas del modelo especificando [ún
 
 ***TIPOS DE CLIENTES***
 
+| CAMPO       | TIPO DE DATO | TIPO DE CLAVE |
+|-------------|--------------|---------------|
+| ID Tipo     | INT          | PK            |
+| Descripcion | TEXT(50)     |               |
+
+***EMPRESAS ENVIO***
+
+| CAMPO    | TIPO DE DATO | TIPO DE CLAVE |
+|----------|--------------|---------------|
+| ID Envio | INT          | PK            |
+| Empresas | TEXT(50)     |               |
+
+***PROCESADOR***
+
+| CAMPO        | TIPO DE DATO   | TIPO DE CLAVE |
+|--------------|----------------|---------------|
+| ID Procesador| INT            | PK            |
+| Procesador   | VARCHAR(100)   |               |
+
+***ALMACENAMIENTO***
+
+| CAMPO          | TIPO DE DATO   | TIPO DE CLAVE |
+|----------------|----------------|---------------|
+| ID Almacenamiento | INT          | PK            |
+| Almacenamiento    | VARCHAR(50)  |               |
+
+***RAM***
+
+| CAMPO  | TIPO DE DATO   | TIPO DE CLAVE |
+|--------|----------------|---------------|
+| ID RAM | INT            | PK            |
+| RAM    | VARCHAR(10)    |               |
+
+***CATEGORIA ARTÍCULO***
+
 
