@@ -684,3 +684,14 @@ Esta página focaliza el análisis del total de las ventas, costos, ganancia y c
 ![Prodcutos](imagenes/productos.png)
 
 ---
+***Tooltip Cantidad Vendida***
+
+La visualización gráfico de anillos sobre la cantidad vendida en la página productos discrimina la cantidad vendida según las gamas de los celulares y posee un tooltip que además de indicar en su título la categoría de la que se trata, muestra un detalle de la conformidad en forma numérica y porcentual.
+
+![Tooltip Cantidad Vendida](imagenes/tootltip-cantidadvendida.png)
+
+---
+***Atributos sobre la cantidad vendida***
+
+La página productos tiene un segmentador creado a través de un parámetro de campo, que facilita el filtrado de la visualización del gráfico de barras agrupado, pudiendo luego, derivar a la página conclusiones aplicando ese filtro.
+
