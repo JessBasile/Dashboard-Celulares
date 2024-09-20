@@ -709,7 +709,7 @@ La página de clientes centra su análisis en detectar la cantidad de clientes t
 
 La visualización matríz de ventas por tipo de cliente no solo muestra las ventas totales y las cantidades totales que los distintos tipos de clientes efectuaron, sino que además contiene un tooltip que expande esa información discriminando el nombre del cliente, las ventas y cantidades totales proporcionales a cada uno.
 
-![Tooltip Venta por Cliente](tootip-ventas.png)
+![Tooltip Venta por Cliente](imagenes/tootip-ventas.png)
 
 ---
 ***Tooltip Distribución de los Clientes Activos***
