@@ -267,3 +267,60 @@ Tipo Review = if [Tipo Review] = "Insatisfecho" or [Tipo Review] = "Poco Satisfe
 ```sql
 Nivel Conformidad = if [ID Review] = 1 then "Sin Calificar" else if [ID Review] = 2 then "Insatisfecho" else if [ID Review] = 3 then "Poco Satisfecho" else if [ID Review] = 4 then "Neutro" else if [ID Review] = 5 then "Satisfecho" else "Muy Satisfecho")
 ```
+
++ ***Tabla Marca:*** Se añadió una columna denominada “Logo”, cuyo tipo de dato es texto, y contiene los URL de imágenes en formato png para utilizarlas en la visualización ChicleySlicer. La fórmula utilizada es la siguiente:
+```sql
+Logo = if [ID Marca]= 1 then "https://raw.githubusercontent.com/VanFolken/img_logos/main/APPLE.png" else if [ID Marca] = 2 then "https://raw.githubusercontent.com/VanFolken/img_logos/main/SAMSUNG.png" else if [ID Marca] = 3 then "https://raw.githubusercontent.com/VanFolken/img_logos/main/GOOGLE.png"else if [ID Marca] = 4 then "https://raw.githubusercontent.com/VanFolken/img_logos/main/XIAOMI.png" else if [ID Marca] = 5 then "https://raw.githubusercontent.com/VanFolken/img_logos/main/HUAWEI.png" else if [ID Marca] = 6 then "https://raw.githubusercontent.com/VanFolken/img_logos/main/MOTOROLA.png" else "Otro").
+```
+
++ ***Tabla Ventas:*** Se insertaron dos columnas calculadas de tipo decimal que arrojan como resultados el Total Parcial Ventas y el Total Parcial Costos. Las fórmulas utilizadas son las siguientes:
+```sql
+Total Parcial Ventas = [Precio ud] * [Cantidad]
+Total Parcial Costos = [Coste ud] * [Cantidad]
+```
+
+## Nuevas tablas incorporadas
+
+Se incorporaron diversas tablas con distinta finalidad en DAX que son detalladas a continuación:
+
++ ***Tabla DAX Medidas:*** Es la tabla que contiene todas las medidas calculadas utilizadas para el diseño de las visualizaciones en el dashboard.
+
++ ***Tabla Calendario:*** Se trata de una tabla calculada que contiene un total de cuatro columnas cuyos datos abarcan desde enero 2019 a septiembre 2021 (se delimita el período, puesto que de lo contrario los gráficos con fechas mostraban datos nulos de noviembre a diciembre).
+A continuación, se detallan las columnas con sus correspondientes fórmulas calculadas:
+```sql
+Fecha = CALENDAR(DATE(2019, 1, 1), DATE(2021, 9, 30))
+Año = YEAR(Calendario[Fecha])
+Mes número = MONTH(Calendario[Fecha])
+Mes nombre = LEFT(UPPER(FORMAT(Calendario[Fecha], "MMM")), 1) & MID(FORMAT(Calendario[Fecha], "MMM"), 2, 2)
+```
+
++ ***Tabla Aumento Costos:*** Se creó a través de un parámetro numérico bajo el cual se aplicó un formato porcentual y permite la creación de un segmentador que facilita la simulación de aumentos porcentuales sobre los costos totales.
+```sql
+Aumento de costos = GENERATESERIES(0, 1.01, 0.01)
+Valor de aumento de costos = SELECTEDVALUE('Aumento Costos'[Aumento Costos])
+```
+
++ ***Tabla Incremento Costo UPS:*** Fue creada a través de un parámetro numérico con un formato porcentual que permite la creación de un segmentador que facilita la simulación de aumentos porcentuales sobre una sola variable de los costos. La variable afectada es aquella que corresponde a los clientes que utilizan la empresa de envíos UPS (usuarios que manifestaron mayor insatisfacción, y puede presumirse una relación causal), con la finalidad de simular un escenario en el que Europe Mobile Distributors pueda responsabilizarse por la erogación del traslado.
+```sql
+Incremento Costo UPS = GENERATESERIES(0, 1.01, 0.01)
+Valor de aumento de costos = SELECTEDVALUE('Incremento Costo UPS'[Incremento Costo UPS])
+```
+
++ ***Tabla Descuento Gama Media:*** Se originó a través de un parámetro numérico con formato porcentual que permite la creación de un segmentador que facilita la simulación de descuentos porcentuales sobre una sola variable de las ventas. La variable afectada es aquella que corresponde a los clientes que adquieren artículos de gama media (sobre la que se identificó menor demanda), de ese modo, Europe Mobile Distributors puede simular el impacto que los descuentos pueden provocar en las ganancias con la finalidad de estimular las ventas.
+```sql
+Descuento de Gama Media =GENERATESERIES(0, 1.01, 0.01)
+Valor de Descuento Gama Media = SELECTEDVALUE('Descuento Gama Media'[Descuento Gama Media])
+```
+
++ ***Tabla Atributos sobre la Cantidad Vendida:*** Se trata de una tabla creada a través de un parámetro de campo que permite la creación de un segmentador que filtra la cantidad total vendida por marca o por país, según corresponda.
+```sql
+Atributos sobre la Cantidad Vendida = {("Marca Articulo", NAMEOF('Marca'[Marca Articulo]), 0), ("País", NAMEOF('Pais'[País]), 1)}
+```
+
++ ***Tabla Ventas Agrupadas:*** Es una tabla creada con la finalidad de agrupar las ventas de acuerdo al número de ID Venta Artículo, para ser utilizada en los cálculos estadísticos, es decir, medidas de tendencia central.
+```sql
+Ventas Agrupadas = SUMMARIZE(Ventas, Ventas[ID Vta Articulos], "Valor Venta Agrupada", SUM(Ventas[Total Parcial Ventas]))
+```
+
+## Diagrama de entidad-relación en Power Bi
+
