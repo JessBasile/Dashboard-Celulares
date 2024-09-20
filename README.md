@@ -324,6 +324,8 @@ Ventas Agrupadas = SUMMARIZE(Ventas, Ventas[ID Vta Articulos], "Valor Venta Agru
 
 ## Diagrama de entidad-relación en Power Bi
 
+<img align="right" alt="PBI-logo" width="200" src="https://github.com/JessBasile/Dashboard-Celulares/raw/main/imagenes/PBI-logo.png">
+
 El diagrama de ER fue modificado respecto el diseño original, puesto que, durante la elaboración del tablero, se detecto la necesidad de cambiar algunas relaciones entre tablas. Se trasladaron las relaciones de las tablas de “Envio” y “Ciudad” hacia “Clientes” (en lugar de Ventas como estaba inicialmente). El cambio se implementó por el descubrimiento de la existencia de clientes inactivos que no figuraban en la tabla de hechos, y eso evitaba que pudiera conocerse la ubicación geográfica de los mismos.
 
 ![Diagrama de PBI](imagenes/DER-PBI.png)
