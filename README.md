@@ -63,16 +63,59 @@ El dataset de Venta de Celulares fue elegido dentro de un grupo de opciones prop
 
 ## Listado de Tablas
 
-A continuación, se describen las distintas tablas del modelo especificando las llaves primarias y foráneas.
+A continuación, se describen las distintas tablas del modelo especificando [únicamente las llaves primarias y foráneas].
 
 + ***Tabla Ventas:*** Contiene el detalle de las ventas discriminado el número de factura, cantidad, precio y costo. En el caso de la factura, articulo, marca, cliente y país figuran con sus abreviaciones.
 
-`PK:` ID Venta Articulo
-`FK:` ID Factura
-`FK:` ID Articulo
-`FK:` ID Marca
-`FK:` ID Cliente
-`FK:` ID Ciudad
-`FK:` ID País
-`FK:` ID Pago
-`FK:` ID Tipo
+`PK:` ID Venta Articulo `FK:` ID Factura `FK:` ID Articulo `FK:` ID Marca `FK:` ID Cliente `FK:` ID Ciudad `FK:` ID País `FK:` ID Pago `FK:` ID Tipo
+
++ ***Tabla Artículos:*** Contiene la descripción del artículo, precio y costo, mientras que el artículo, la marca, la categoría, la RAM, almacenamiento y procesador figuran con sus abreviaciones.
+
+`PK:` ID Articulo `FK:` ID Cat Articulo `FK:` ID RAM `FK:` ID Almacenamiento `FK:` ID Procesador 
+
++ ***Tabla Clientes:*** Contiene nombre del cliente, y abreviaciones de los clientes, ciudades, países y envío.
+
+`PK:` ID Clientes `FK:` ID Envío
+
++ ***Tabla procesador:*** Contiene la descripción de los distintos procesadores, con sus abreviaciones campo ID Procesador.
+
+`PK:` ID Procesador
+
++ ***Tabla Almacenamiento:*** Contiene los cuatro tamaños de almacenamiento 256GB, 128GB, 64GB y 32 GB con sus abreviaciones campo ID Almacenamiento.
+
+`PK:` ID Almacenamiento
+
++ ***Tabla RAM:*** Contiene los cinco tamaños de memoria RAM 12GB, 8GB, 6GB, 4GB y 2GB con sus abreviaciones campo ID RAM.
+
+`PK:` ID RAM
+
++ ***Tabla Categoría Artículo:*** Contiene las tres categorías de gama sobre los artículos Alta, Media y Baja con sus abreviaciones campo ID Categoría Articulo.
+
+`PK:` ID Categoría Artículo
+
++ ***Tabla Tipo Pago:*** Contiene los cuatro diferentes medios de pago Efectivo, Crédito, Transferencia y Cheque con sus abreviaciones campo ID Pago.
+
+`PK:` ID Pago
+
++ ***Tabla País:*** Contiene cinco países europeos España, Portugal, Italia, Francia y Alemania en los que se encuentran ubicados los clientes, con sus abreviaciones campo ID País.
+
+`PK:` ID País
+
++ ***Tabla Ciudad:*** Contiene las distintas ciudades en las que se encuentran ubicados los clientes, con sus abreviaciones campo ID Ciudad.
+
+`PK:` ID Ciudad.
+
++ ***Tabla Marca:*** Contiene las seis marcas Apple, Samsung, Google, Xiaomi, Huawei y Motorola de los artículos que se comercializan, con sus abreviaciones campo ID Marca.
+
+`PK:` ID Marca
+
++ ***Tabla Facturas:*** Contiene los números de facturas y fechas de todas las ventas de celulares efectuadas en la compañía “Europe Mobile Distributors” desde el año 2019 al 2021 inclusive, con sus abreviaciones sobre las facturas, los pagos y los review.
+
+`PK:` ID Factura `FK:` ID Review
+
++ ***Tabla Review:*** Contiene las puntuaciones None, 1, 2, 3, 4 y 5 sobre las valoraciones efectuadas por los clientes que revelan su satisfacción, donde None hace referencia a la ausencia de valoración por parte del consumidor.
+
+`PK:` ID Review
+
+## Listado de columnas por tablas
+
