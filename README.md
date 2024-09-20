@@ -332,3 +332,14 @@ El diagrama de ER fue modificado respecto el diseño original, puesto que, duran
 
 Se crearon un total de 32 medidas calculadas diferentes. Las mismas se encuentran agrupadas en dos carpetas dentro de “DAX Medidas” y sus nombres fueron elegidos acorde a los datos que proporcionan en las visualizaciones.
 
+![Medidas Calculadas](imagenes/medidas-calculadas.png)
+
+A continuación, se detalla la fórmula de calculo sobre cada medida y su finalidad específica.
+
+***Medida:** _Cantidad Total Vendida_
+```sql
+VAR _cantidadtotalvendida = SUM(Ventas[Cantidad]) RETURN
+IF(ISBLANK(_cantidadtotalvendida), 0, _cantidadtotalvendida)
+```
+_Finalidad:_ Esta medida fue creada a través de una variable para sumar la cantidad total vendida de la columna Cantidad que se encuentra en la tabla Ventas. Al final de la fórmula se aplica una restricción, para que en caso que el resultado sea “en blanco” de cero y al segmentar figure el número en lugar de la palabra.
+---
