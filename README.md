@@ -508,5 +508,97 @@ IF(ISBLANK(_ventasinresenas), 0, _ventasinresenas)
 ***Finalidad:*** Esta medida se obtiene con ayuda de una variable encargada de contar la cantidad de facturas que fueron emitidas, pero no fueron calificadas por los clientes. A su vez, al final de la fórmula se aplica una restricción, para que en caso que el resultado sea “en blanco” de cero y al segmentar figure el número en lugar de la palabra.
 
 ---
-## MEDIDA DE TENDENCIA CENTRAL
+***MEDIDA DE TENDENCIA CENTRAL***
+---
+***Medida:*** _Cuartil 1_
+```sql
+PERCENTILE.INC('Ventas Agrupadas'[Valor Venta Agrupada], 0.25)
+```
+***Finalidad:*** Esta medida permite calcular el valor del primer cuartil sobre las Ventas Agrupadas. Proporciona información sobre la distribución de los datos.
+
+---
+***Medida:*** _Cuartil 3_
+```sql
+PERCENTILE.INC('Ventas Agrupadas'[Valor Venta Agrupada], 0.75)
+```
+***Finalidad:*** Esta medida permite calcular el valor del tercer cuartil sobre las Ventas Agrupadas. Proporciona información sobre la distribución de los datos.
+
+---
+***Medida:*** _CV_
+```sql
+DIVIDE([Desvio STD], [Venta Promedio MTC])-1
+```
+***Finalidad:*** Esta medida permite calcular el coeficiente de variación a través de un cociente entre el Desvio Standard y las Ventas Promedio MTC. Se resta uno para que el resultado se arroje en porcentaje, y es negativo dado que la media es bastante superior a la desviación standard.
+
+---
+***Medida:*** _Desvio STD_
+```sql
+STDEV.P('Ventas Agrupadas'[Valor Venta Agrupada])
+```
+***Finalidad:*** Esta medida permite calcular la desviación standard de las Ventas Agrupadas. Representa la distancia promedio que existe entre la media y los puntos individuales de nuestros registros.
+
+---
+***Medida:*** _Empresa de Envio Más utilizada_
+```sql
+VAR _masutilizada = TOPN(1, SUMMARIZE(Ventas, 'Empresas Envio'[Empresa]), [Total Facturas], DESC) RETURN
+UNICHAR(128667) & " " & _masutilizada
+```
+***Finalidad:*** Esta medida calculada proporciona a través de una variable el nombre de la Empresa de Envíos que más se utiliza en las transacciones comerciales efectuadas. Asimismo, la información se expone con un ícono (de un camión) con el código 128667 que fue extraído de la página web [https://www.vertex42.com/ExcelTips/unicode-symbols.html](https://www.vertex42.com/ExcelTips/unicode-symbols.html).
+
+---
+***Medida:*** _Ganancia Obtenida con Disconformidad_
+```sql
+VAR _disconformes = [Disconformes] VAR _ganancia_disconforme =
+SUMX(
+FILTER(
+'Facturas',
+'Facturas'[ID Review] > 1 && 'Facturas'[ID Review] < 4
+),
+CALCULATE([Ganancia Total])
+) RETURN
+IF(_disconformes > 0, _ganancia_disconforme, 0)
+```
+***Finalidad:*** Esta medida calculada a través de dos variables permite obtener solo la ganancia obtenida sobre las ventas que fueron calificadas en forma negativa (disconformes).
+
+---
+***Medida:*** _Marca Más Vendida_
+```sql
+VAR _masvendido = TOPN(1, SUMMARIZE(Ventas, Marca[Marca Articulo]), [Cantidad Total Vendida], DESC)
+RETURN
+UNICHAR(128241) & " " & _masvendido
+```
+***Finalidad:*** Esta medida proporciona el nombre de la marca que vendió mayor cantidad de productos. La información se expone junto al ícono de un celular con el código número 128241 extraído del sitio web: [https://www.vertex42.com/ExcelTips/unicode-symbols.html](https://www.vertex42.com/ExcelTips/unicode-symbols.html).
+
+---
+***Medida:*** _Titulo Marca Producto_
+```sql
+VAR _Marcaproducto = SELECTEDVALUE(Marca[Marca Articulo]) RETURN
+IF(_Marcaproducto = BLANK(), "Todas", _Marcaproducto)
+```
+***Finalidad:*** Esta medida expone el nombre de la Marca que se encuentra filtrada en la página Conclusiones cuando se deriva desde los Atributos de la Cantidad Vendida en la pestaña Productos.
+
+---
+***Medida:*** _Titulo Ubicación Geográfica_
+```sql
+VAR _ubicacionpais = SELECTEDVALUE(Pais[País]) RETURN
+IF(_ubicacionpais = BLANK(), "Europa", _ubicacionpais)
+``` 
+***Finalidad:*** Esta medida – al igual que la anterior – expone el País que se encuentra filtrado en la página conclusiones cuando se deriva desde los Atributos de la Cantidad Vendida en la pestaña Productos.
+
+---
+***Medida:*** _Venta Mediana MTC_
+```sql
+MEDIAN('Ventas Agrupadas'[Valor Venta Agrupada])
+```
+***Finalidad:*** Esta medida permite obtener el valor de la Mediana, es decir, el valor del centro del conjunto de Ventas Agrupadas.
+
+---
+***Medida:*** _Venta Moda Frecuencia MTC_
+```sql
+VAR _Tabla_Agrupada = SUMMARIZE('Ventas Agrupadas', 'Ventas Agrupadas'[Valor Venta Agrupada], "Recuento", COUNTROWS('Ventas Agrupadas'))
+VAR _Maximo = MAXX(_Tabla_Agrupada, [Recuento]) RETURN
+_Maximo
+```
+***Finalidad:*** Esta medida se obtiene a través de 2 variables, donde la primera permite determinar la cantidad de veces (recuento) que se repite cada valor en la columna Valor Venta Agrupada en la tabla de Ventas Agrupadas, mientras que la segunda variable identifica el máximo de los recuentos que se obtuvo anteriormente. De ese modo, se determina la frecuencia de la moda que será utilizada para sacar conclusiones en comparación con las demás medidas de tendencia central.
+
 ---
