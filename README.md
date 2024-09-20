@@ -644,4 +644,43 @@ La cantidad de hojas que tiene el dashboard se diseñó en función de las disti
 
 La portada es el menú principal del tablero, y se compone de botones interactivos que derivan a las distintas páginas del tablero.
 
+![portada](imagenes/portada.png)
 
+---
+***Página Reseñas***
+
+Esta página se enfoca en el análisis de las reseñas de los clientes y su nivel de conformidad.
+
+![resena](imagenes/resena.png)
+
+Uno de los tooltips que contiene la página permite identificar particularmente los nombres y la ubicación de los clientes para posteriormente poder contactarlos y profundizar la información sobre el origen de su disconformidad. A su vez, se expone por otro tooltip los clientes que no efectuaron reseñas, que aunque se trata de un número poco significativo, será recomendable comunicarnos y solicitar amablemente si pueden efectuar sus calificaciones para que nuestro análisis sea lo más objetivo posible.
+
+---
+***Tooltip Facturas Sin Reseña***
+
+La visualización tipo embudo que muestra la cantidad de facturas sin reseña discriminadas por gama, contiene un tooltip que explaya información detallada con los nombres de los clientes que no realizaron esa valoración y la cantidad de operaciones que hicieron.
+
+![Tooltip factura](imagenes/tooltip-factura.png)
+
+---
+***Tooltip Disconformes***
+
+La visualización gráfico de anillos sobre la cantidad de reseñas disconformes, contiene un tooltip que proporciona el listado de los clientes que efectuaron reseñas de tipo “Insatisfechos” y “Poco Satisfechos”; esto permite distinguir el nombre de cada cliente y la cantidad de reseñas negativas que efectuó.
+
+![Tooltip disconformes](imagenes/tooltip-disconformes.png)
+
+---
+***Tooltip Distribución Geográfica Clientes Disconformes***
+
+La visualización mapa de la página reseñas contiene un tooltip que revela el nombre de las clientes que efectuaron valoraciones disconformes, con la cantidad de reseñas totales por país. De ese modo, se identifica con claridad las ubicaciones geográficas con mayor concentración de clientes disconformes, en este caso, España con 16.
+
+![Tooltip geografico disconformes](imagenes/tootltip-geo-clientes-disconformes.png)
+
+---
+***Página Productos***
+
+Esta página focaliza el análisis del total de las ventas, costos, ganancia y cantidad total vendida pudiendo filtrar de acuerdo a las empresas de envío y marcas. También se muestra la cantidad vendida según las gamas y el tamaño de las memorias de los equipos móviles.
+
+![Prodcutos](imagenes/productos.png)
+
+---
