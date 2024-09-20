@@ -342,6 +342,76 @@ A continuación, se detalla la fórmula de calculo sobre cada medida y su finali
 VAR _cantidadtotalvendida = SUM(Ventas[Cantidad]) RETURN
 IF(ISBLANK(_cantidadtotalvendida), 0, _cantidadtotalvendida)
 ```
-_Finalidad:_ Esta medida fue creada a través de una variable para sumar la cantidad total vendida de la columna Cantidad que se encuentra en la tabla Ventas. Al final de la fórmula se aplica una restricción, para que en caso que el resultado sea “en blanco” de cero y al segmentar figure el número en lugar de la palabra.
+***Finalidad:*** Esta medida fue creada a través de una variable para sumar la cantidad total vendida de la columna Cantidad que se encuentra en la tabla Ventas. Al final de la fórmula se aplica una restricción, para que en caso que el resultado sea “en blanco” de cero y al segmentar figure el número en lugar de la palabra.
 
 ---
+***Medida:*** _Cantidad Total Vendida Año Anterior_
+```sql 
+CALCULATE([Cantidad Total Vendida], DATEADD(Calendario[Fecha], -1, YEAR))
+```
+***Finalidad:*** Esta medida permite calcular la cantidad vendida acumulada hasta el año anterior, para ser utilizada en la visualización “Scroller” del mapa que figura en la página productos que permite mostrar numéricamente ese escenario comparativo.
+
+---
+***Medida:*** _Cliente Activos_
+```sql 
+VAR _activos = CALCULATE(DISTINCTCOUNT('Ventas'[ID Cliente])) RETURN
+IF(ISBLANK(_activos), 0, _activos)
+```
+***Finalidad:*** A través de la introducción de una variable, esta medida calcula la cantidad de clientes a los que se les realizaron ventas, asegurándose de no contar clientes de forma duplicada. Al final de la fórmula se aplica una restricción, para que en caso que el resultado sea “en blanco” de cero y al segmentar figure el número en lugar de la palabra.
+
+---
+***Medida:*** _Clientes Inactivos_
+```sql
+VAR _inactivos = ([Total Clientes] - [Clientes Activos]) RETURN
+IF(HASONEVALUE('Tipos Cliente'[ID Tipo]), 0,
+IF(ISBLANK(_inactivos), 0, _inactivos))
+```
+***Finalidad:*** Esta medida se realiza a través de una variable que resta dos medidas calculadas generadas anteriormente, y permite obtener la cantidad de clientes a los que no se les efectuaron ventas, puesto que figuran en la tabla Clientes, pero no en la tabla Ventas. Asimismo, se coloca una restricción solicitando que se evalúe si en la tabla Tipos de Cliente existe un valor que especifique el tipo del que se trata, y si no lo hay que arroje el valor cero.
+Esta restricción se incorporó dado que los clientes inactivos solo figuran en la tabla Clientes, y los Tipos de clientes solo figuran en la tabla Ventas, en consecuencia, no puede saberse la clase de cliente que son los inactivos. Por último, al final de la fórmula también figura otra restricción, para que en caso que el resultado sea “en blanco” de cero y al segmentar figure el número en lugar de la palabra.
+
+---
+***Medida:*** _Costo Total Desglosado por Empresa de Envío_
+```sql
+VAR _DHL = CALCULATE(SUMX(FILTER('Ventas', RELATED('Clientes'[ID Envio]) = 1), 'Ventas'[Total Parcial Costos]))
+VAR _Fedex = CALCULATE(SUMX(FILTER('Ventas', RELATED('Clientes'[ID Envio]) = 2), 'Ventas'[Total Parcial Costos]))
+VAR _UPS = CALCULATE(SUMX(FILTER('Ventas', RELATED('Clientes'[ID Envio]) = 3), 'Ventas'[Total Parcial Costos])) * (1 + 'Incremento Costo UPS'[Valor de Incremento Costo UPS])
+VAR _Schenker = CALCULATE(SUMX(FILTER('Ventas', RELATED('Clientes'[ID Envio]) = 4), 'Ventas'[Total
+Parcial Costos]))
+VAR _TNT = CALCULATE(SUMX(FILTER('Ventas', RELATED('Clientes'[ID Envio]) = 5), 'Ventas'[Total Parcial Costos]))
+VAR _TotalCostos = _DHL + _Fedex + _UPS + _Schenker + _TNT
+RETURN
+IF(ISBLANK(_TotalCostos), 0, _TotalCostos * (1 + 'Aumento Costos'[Valor de Aumento Costos]))
+```
+***Finalidad:*** Se crearon en total de 6 variables, dentro de las cuales 5 corresponden a los costos de los productos que se venden a los clientes que utilizan determinadas empresas de envío. Sobre la empresa UPS se aplica un parámetro numérico que permite incrementarlo a través de una segmentación. La última variable, realiza una suma de todas las anteriores y en su retorno también se aplica un parámetro numérico que permite incrementar el total de los costos para explorar futuros
+escenarios. Por último, al final de la fórmula también figura otra restricción, para que en caso que el resultado sea “en blanco” de cero y al segmentar figure el número en lugar de la palabra.
+
+---
+***Medida:*** _Disconformes_
+```sql
+VAR _disconforme = CALCULATE(COUNTROWS('Facturas'), 'Facturas'[ID Review] > 1 && 'Facturas'[ID Review] < 4)
+RETURN
+IF(ISBLANK(_disconforme), 0, _disconforme)
+```
+***Finalidad:*** Esta medida a través de una variable cuenta la cantidad de facturas que tienen un ID Review mayor a 1 y menor a 4, puesto que los ID Review 2 y 3 son los clientes “Insatisfechos” y “Poco Satisfechos” considerados como disconformes. Al final de la fórmula se aplica una restricción, para que en caso que el resultado sea “en blanco” de cero y al segmentar figure el número en lugar de la palabra.
+
+---
+***Medida:*** _Disconformes Año Anterior_
+```sql 
+CALCULATE([Disconformes], DATEADD(Calendario[Fecha], -1, YEAR))
+```
+*** Finalidad:*** Esta medida busca obtener la cantidad acumulada en años anteriores de clientes disconformes para ser utilizada en una visualización KPI que permita observar esa comparación.
+
+---
+***Medida:*** _Etiqueta Positiva_
+```sql
+IF([Disconformes] = 0, UNICHAR(128994), BLANK())
+```
+***Finalidad:*** Esta medida fue creada con la finalidad de utilizarse como una etiqueta en visualizaciones donde se requiere una indicación visual para manifestar alguna situación en particular. En el dashboard elaborado se utiliza en el gráfico donde se muestra el total de reseñas en comparación a las reseñas disconformes para indicar (con un círculo verde) los meses en los que no hubo reseñas negativas. El código 128994 fue extraído de la página web [https://www.vertex42.com/ExcelTips/unicode-symbols.html](https://www.vertex42.com/ExcelTips/unicode-symbols.html).
+
+---
+***Medida:*** _Ganancia Total_
+```sql 
+[Venta Total Desglosada por Gama] - [Costo Total Desglosado por Empresa Envio]
+```
+***Finalidad:*** Esta medida se calcula restando dos medidas calculadas anteriormente, para obtener como resultado la ganancia total del período analizado.
+
