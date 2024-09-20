@@ -345,6 +345,8 @@ Se crearon un total de 32 medidas calculadas diferentes. Las mismas se encuentra
 A continuación, se detalla la fórmula de calculo sobre cada medida y su finalidad específica.
 
 ---
+***MEDIDAS GENERALES***
+---
 ***Medida:*** _Cantidad Total Vendida_
 ```sql
 VAR _cantidadtotalvendida = SUM(Ventas[Cantidad]) RETURN
@@ -423,3 +425,90 @@ IF([Disconformes] = 0, UNICHAR(128994), BLANK())
 ```
 ***Finalidad:*** Esta medida se calcula restando dos medidas calculadas anteriormente, para obtener como resultado la ganancia total del período analizado.
 
+---
+***Medida:*** _Reseñas Promedio_
+```sql
+IFERROR(DIVIDE([Total Review], [Clientes Activos]), 0) + 0
+```
+***Finalidad:*** Esta medida calcula el cociente entre dos medidas calculadas anteriormente, cuyo resultado proporciona el promedio de las reseñas efectuadas por los clientes. Se toma la precaución de utilizar “IFERROR” por tratarse de una división, para evitar cualquier inconveniente si el divisor (en este caso Clientes Activos) fuera cero.
+
+---
+***Medida:*** _Titulo Tooltip_
+```sql
+SELECTEDVALUE(CategoriaArticulo[Categoria Articulo]
+```
+***Finalidad:*** Tal como indica su nombre, esta medida es utilizada para el título dinámico de un tooltip cuya finalidad es indicar la gama de los celulares que adquirieron ciertos clientes que no efectuaron reseñas sobre sus operaciones.
+
+---
+***Medida:*** _Titulo Tooltip2_
+```sql    
+SELECTEDVALUE(Facturas[Tipo Review])
+```
+***Finalidad:*** Esta medida calculada es utilizada como título dinámico para un tooltip que refleje el nivel de satisfacción (insatisfechos y poco satisfechos) que tienen los clientes disconformes que son listados en esa visualización.
+
+---
+***Medida:*** _Titulo Tooltip4_
+```sql
+SELECTEDVALUE('Tipos cliente'[Descripcion])
+```
+***Finalidad:*** Esta medida calculada es utilizada como título dinámico para un tooltip que refleje el tipo de cliente involucrado en una visualización.
+
+---
+***Medida:*** _Titulo Tooltip5_
+```sql 
+SELECTEDVALUE(Pais[País])
+```
+***Finalidad:*** Esta medida calculada es utilizada como título dinámico para un tooltip que revela el país de los clientes activos que se ven involucrados en la visualización en la que se aplica.
+
+---
+***Medida:*** _Total Clientes_
+```sql
+VAR _totalclientes = COUNTROWS(Clientes) RETURN
+IF(ISBLANK(_totalclientes), 0, _totalclientes)
+```
+***Finalidad:*** Esta medida refleja a través de una variable la cantidad total de clientes que figuran en la tabla Clientes contados a través de la cantidad de filas que posee. Al final de la fórmula figura una restricción, para que en caso que el resultado sea “en blanco” de cero y al segmentar figure el número en lugar de la palabra.
+
+---
+***Media:*** _Total Facturas_
+```sql
+VAR _totalfacturas = COUNTROWS(Facturas) RETURN
+IF(ISBLANK(_totalfacturas), 0, _totalfacturas)
+```
+***Finalidad:*** Esta medida se calcula por medio de una variable que arroja el número total de facturas emitidas en el período analizado. Al final de la fórmula se aplica una restricción, para que en caso que el resultado sea “en blanco” de cero y al segmentar figure el número en lugar de la palabra.
+
+---
+***Medida:*** _Total Review_
+```sql
+VAR _totalreview = CALCULATE(
+[Total Facturas], FILTER(
+Facturas,
+Facturas[ID Review] <> 1))
+RETURN
+IF(ISBLANK(_totalreview), 0, _totalreview)
+```
+***Finalidad:*** Esta medida se calcula a través de una variable que arroja el total de facturas que tienen reseñas comprendidas entre los ID Review mayores a uno, dado que las facturas con ID Review igual a uno no poseen reseñas y por esa razón son excluidas. Asimismo, al final de la fórmula se aplica una restricción, para que en caso que el resultado sea “en blanco” de cero y al segmentar figure el número en lugar de la palabra.
+
+---
+***Medida:*** _Venta Total Desglosada por Gama_
+```sql
+VAR _AltaGama =
+CALCULATE(SUMX(FILTER(Ventas,Ventas[ID Articulo] >= 1 && Ventas[ID Articulo] <= 5),Ventas[Total Parcial Ventas]))
+VAR _MediaGama = CALCULATE(SUMX(FILTER(Ventas,Ventas[ID Articulo] >= 6 && Ventas[ID Articulo] <= 10),Ventas[Total Parcial Ventas])) * (1 - 'Descuento Gama Media'[Valor de Descuento Gama Media]) VAR _BajaGama = CALCULATE(SUMX(FILTER(Ventas,Ventas[ID Articulo] >= 11 && Ventas[ID Articulo] <= 15),Ventas[Total Parcial Ventas]))
+RETURN
+_AltaGama + _MediaGama + _BajaGama
+```
+***Finalidad:*** Es una medida que por medio de 3 variables calcula el valor recaudado por todas las ventas comprendidas dentro del período analizado discriminando la gama del producto involucrado en la operación. Sobre la variable de gama media se aplica un parámetro porcentual que descuenta para evaluar posibles escenarios de descuento a fin de incentivar las ventas de esa categoría en específico.
+
+---
+***Medida:*** _Ventas Sin Reseñas_
+```sql
+VAR _ventasinresenas = CALCULATE( COUNTROWS(Facturas), Facturas[ID Review] = 1)
+RETURN
+IF(ISBLANK(_ventasinresenas), 0, _ventasinresenas)
+```
+***Finalidad:*** Esta medida se obtiene con ayuda de una variable encargada de contar la cantidad de facturas que fueron emitidas, pero no fueron calificadas por los clientes. A su vez, al final de la fórmula se aplica una restricción, para que en caso que el resultado sea “en blanco” de cero y al segmentar figure el número en lugar de la palabra.
+
+---
+## MEDIDA DE TENDENCIA CENTRAL
+
+---
