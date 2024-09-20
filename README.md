@@ -119,3 +119,49 @@ A continuación, se describen las distintas tablas del modelo especificando [ún
 
 ## Listado de columnas por tablas
 
+***VENTAS***
+
+| CAMPO              | TIPO DE DATO    | TIPO DE CLAVE |
+|--------------------|-----------------|---------------|
+| ID Venta Artículos  | INT             | PK            |
+| Nro Factura         | VARCHAR(20)     |               |
+| ID Factura          | INT             | FK            |
+| ID Articulo         | INT             | FK            |
+| ID Marca            | INT             | FK            |
+| ID Cliente          | INT             | FK            |
+| ID Ciudad           | INT             | FK            |
+| ID País             | INT             | FK            |
+| Cantidad            | INT             |               |
+| Precio USD          | DECIMAL(5,2)    |               |
+| Coste USD           | DECIMAL(5,2)    |               |
+| ID Pago             | INT             | FK            |
+| ID Tipo             | INT             | FK            |
+
+***ARTÍCULOS***
+
+| CAMPO             | TIPO DE DATO    | TIPO DE CLAVE |
+|-------------------|-----------------|---------------|
+| ID Articulo       | INT             | PK            |
+| ID Marca          | INT             |               |
+| Des Articulo      | VARCHAR(100)    |               |
+| Precio USD        | DECIMAL(5,2)    |               |
+| Coste USD         | DECIMAL(5,2)    |               |
+| ID Cat Articulo   | INT             | FK            |
+| ID RAM            | INT             | FK            |
+| ID Almacenamiento | INT             | FK            |
+| ID Procesador     | INT             | FK            |
+
+
+***CLIENTES***
+
+| CAMPO           | TIPO DE DATO | TIPO DE CLAVE |
+|-----------------|--------------|---------------|
+| ID Cliente      | INT          | PK            |
+| Nombre Cliente  | TEXT(50)     |               |
+| ID Ciudad       | INT          |               |
+| ID Pais         | INT          |               |
+| ID Envio        | INT          | FK            |
+
+***TIPOS DE CLIENTES***
+
+
