@@ -1,6 +1,6 @@
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/JessBasile/Dashboard-Celulares/main/imagenes/analitycs.gif" alt="Descripción del GIF" style="width: 100%; max-width: 800px; height: auto;">
+    <img src="https://raw.githubusercontent.com/JessBasile/Dashboard-Celulares/main/imagenes/analitycs.gif" alt="Descripción del GIF" style="max-width: 400px; height: auto;">
 </p>
 
 
