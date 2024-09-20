@@ -336,6 +336,7 @@ Se crearon un total de 32 medidas calculadas diferentes. Las mismas se encuentra
 
 A continuación, se detalla la fórmula de calculo sobre cada medida y su finalidad específica.
 
+---
 ***Medida:*** _Cantidad Total Vendida_
 ```sql
 VAR _cantidadtotalvendida = SUM(Ventas[Cantidad]) RETURN
