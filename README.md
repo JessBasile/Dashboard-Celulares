@@ -625,7 +625,7 @@ En consideración al objetivo y alcance del proyecto, se utilizaron distintas se
 
 ***Páginas de reseñas***
 
-![segmentacion](imagenes/segmentacion.png)
+![segmentacion](imagenes/segmentaciones.png)
 
 En la pestaña reseñas se crearon 2 segmentadores para filtrar por año y por empresa de envíos, lo que permite determinar las fluctuaciones que se experimentaron en las reseñas durante el año seleccionado y el nivel de satisfacción cuando intervienen las distintas empresas de envíos involucradas en cada venta que fue reseñada.
 
