@@ -625,15 +625,23 @@ En consideración al objetivo y alcance del proyecto, se utilizaron distintas se
 
 ***Páginas de reseñas***
 
-
+![segmentacion](imagenes/segmentacion.png)
 
 En la pestaña reseñas se crearon 2 segmentadores para filtrar por año y por empresa de envíos, lo que permite determinar las fluctuaciones que se experimentaron en las reseñas durante el año seleccionado y el nivel de satisfacción cuando intervienen las distintas empresas de envíos involucradas en cada venta que fue reseñada.
 
 ***Páginas Clientes***
 
-
+![segmentacion clientes](imagenes/segmentacion-clientes.png)
 
 En la pestaña clientes se incluyeron 4 segmentadores para profundizar el análisis. En año permite identificar con mayor precisión la cantidad de ventas/facturas y reseñas que se realizaron durante el año seleccionado, mientras que las empresas de envíos facilita identificar la cantidad de clientes que usan cada proveedor de flete y si se tratan de clientes activo o inactivos, en el caso de la gama facilita la identificación de los clientes que adquieren las distintas categorías de los productos, y por último, el tipo de pago que revela los medios de pago más utilizados y priorizados por los consumidores.
 
 ## Análisis funcional del tablero
+
+La cantidad de hojas que tiene el dashboard se diseñó en función de las distintas perspectivas que se pretendían abordar en el análisis: reseñas, clientes y productos. A su vez, se anexa el menú de inicio, glosario y conclusiones.
+
+---
+***Página Portada***
+
+La portada es el menú principal del tablero, y se compone de botones interactivos que derivan a las distintas páginas del tablero.
+
 
