@@ -631,7 +631,7 @@ En la pestaña reseñas se crearon 2 segmentadores para filtrar por año y por e
 
 ***Páginas Clientes***
 
-![segmentacion clientes](imagenes/segmentacion-clientes.png)
+![segmentacion clientes](imagenes/segmentacion-cliente.png)
 
 En la pestaña clientes se incluyeron 4 segmentadores para profundizar el análisis. En año permite identificar con mayor precisión la cantidad de ventas/facturas y reseñas que se realizaron durante el año seleccionado, mientras que las empresas de envíos facilita identificar la cantidad de clientes que usan cada proveedor de flete y si se tratan de clientes activo o inactivos, en el caso de la gama facilita la identificación de los clientes que adquieren las distintas categorías de los productos, y por último, el tipo de pago que revela los medios de pago más utilizados y priorizados por los consumidores.
 
