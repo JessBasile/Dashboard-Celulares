@@ -1,9 +1,5 @@
 
 
-<p align="center">
-    <img src="https://raw.githubusercontent.com/JessBasile/Dashboard-Celulares/main/analitycs.gif" alt="Descripción del GIF" style="width: 100%; max-width: 800px; height: auto;">
-</p>
-
 
 ## Proyecto Data Analytics 
 
