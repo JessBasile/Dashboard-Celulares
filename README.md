@@ -695,3 +695,60 @@ La visualización gráfico de anillos sobre la cantidad vendida en la página pr
 
 La página productos tiene un segmentador creado a través de un parámetro de campo, que facilita el filtrado de la visualización del gráfico de barras agrupado, pudiendo luego, derivar a la página conclusiones aplicando ese filtro.
 
+![Atributos Cantidad Vendida](atributos.png)
+
+---
+***Página Clientes***
+
+La página de clientes centra su análisis en detectar la cantidad de clientes totales, activos, inactivos, la evolución de las ventas, un listado de los clientes inactivos con sus id para identificar que se trata de los clientes más recientes incorporados y la distribución geográfica de los clientes activos. Toda esa información puede ser clasificada según el tipo de cliente, para elaborar conclusiones, así como también 4 segmentadores que habilitan profundizar aún más las conclusiones.
+
+![Clientes](clientes.png)
+
+---
+***Tooltip Ventas por Tipo de Cliente***
+
+La visualización matríz de ventas por tipo de cliente no solo muestra las ventas totales y las cantidades totales que los distintos tipos de clientes efectuaron, sino que además contiene un tooltip que expande esa información discriminando el nombre del cliente, las ventas y cantidades totales proporcionales a cada uno.
+
+![Tooltip Venta por Cliente](tootip-ventas.png)
+
+---
+***Tooltip Distribución de los Clientes Activos***
+
+La visualización mapa de la página clientes no solo muestra la distribución y concentración geográfica de los clientes activos en los diferentes países, sino que, además, contiene un tooltip que expande información proporcionando el nombre del cliente, la ciudad y la ganancia total. Esto facilita identificar los ingresos que genera cada cliente según la ciudad y país al que pertenece.
+
+![Tooltip Clientes Activos](tootltip-activos.png)
+
+---
+***Página Conclusiones***
+
+La página conclusiones muestra diversas medidas de tendencia central para su comparación y posterior interpretación. Asimismo, se exhibe la marca más vendida, la empresa de envíos más utilizada en las operaciones y la ganancia obtenida por las ventas que obtuvieron reseñas negativas. Por último, cuenta con dos top 5 de clientes para no solo ubicar los más disconformes, sino además, evaluar si son aquellos que efectúan mayor cantidad de compras.
+
+![Conclusiones](conclusiones.png)
+
+---
+***Página Glosario***
+
+El glosario muestra información relevante para que el usuario conozca el objetivo y alcance del proyecto, así como también las definiciones clave de los íconos que aparecen en las visualizaciones y las abreviaciones que tienen algunos segmentadores creados con parámetros numéricos.
+
+![Glosario](glosario.png)
+
+---
+
+## Conclusión
+
+Luego de la elaboración del dashboard y su análisis, se concluye que si bien el porcentaje de disconformidad total es bajo (18,07%), la identificación específica de los nombres y ubicaciones de los clientes a través de los tooltips brinda la posibilidad al nivel táctico de ventas de contactarse con ellos e indagar con mayor profundidad el motivo de sus reseñas negativas. Asimismo, en el análisis concreto de los clientes, se detectaron 7 usuarios inactivos que poseen los número de id más recientes, es decir, se trata de los últimos nuevos clientes que se incorporaron a nuestros registros y desde los últimos 3 años no consumen productos de la empresa Europe Mobile Distributors, y si bien, no se logra identificar particularmente el momento en el que dejaron de operar, será recomendable comunicarse para investigar el motivo y poder revertir la situación siempre que sea posible. Sobre éste último punto, cabe destacar que 3 clientes de los inactivos adquirían sus productos a través de la empresa de envíos “Schenker” – siendo los únicos clientes que utilizaban ese proveedor de envíos -, por lo que será relevante descartar si el motivo de su inactividad tiene algún vínculo causal con ello.
+Por otra parte, el tablero brinda información sobre los clientes que no efectuaron reseñas, otorgando la posibilidad de contactarlos con un recordatorio para que puedan efectuar su valoración y mejorar nuestro análisis.
+En relación a los productos, se detecta que la marca más vendida es Samsung y que la gama media es la menos comercializada, en consecuencia, el dashboard brinda la posibilidad de simular descuentos para evaluar si se justificar efectuar bonificaciones para fomentar el consumo de esa categoría de productos.
+En cuanto a los costos, el tablero posibilita la recreación de escenarios de aumento en el total de los costos para evaluar la posibilidad de hacerse cargo de los envíos de los productos para mejorar las reseñas, y/o también solo responsabilizarse del traslado sobre los clientes que utilizan la empresa UPS. Respecto a las medidas de tendencia central puede afirmarse que se trata de una distribución asimétrica hacia la derecha, dado que la moda es significativamente menor que la media y la mediana.
+
+## Líneas futuras
+
+El dashboard no solo revela información para la toma de decisiones principalmente sobre la disconformidad de los clientes, sino que además se identifican ciertos detalles que si son modificados podrían mejorar aún más la calidad de información, tales como: incorporar en la tabla clientes los tipos de clientes para identificar el tamaño de los clientes inactivos (que no figuran en la tabla ventas). A su vez, resulta interesante investigar si existen otras empresas de envío con las que se pudiera comenzar a operar y ver si de ese modo la satisfacción de los clientes mejora aún más, y por último, podría evaluarse la posibilidad de enviar encuestas anuales a los clientes para obtener informes más amplios y profundos que permitan tomar decisiones para mejorar la experiencia del usuario.
+
+## Referencias
+
+[https://docs.google.com/spreadsheets/d/1nATe3Mp5-cR3_D7_6NR32b0ZcKobmHGj/edit#gid=1167329443](https://docs.google.com/spreadsheets/d/1nATe3Mp5-cR3_D7_6NR32b0ZcKobmHGj/edit#gid=1167329443).
+
+[https://miro.com/es/ ](https://miro.com/es/).
+
+[https://www.vertex42.com/ExcelTips/unicode-symbols.html](https://www.vertex42.com/ExcelTips/unicode-symbols.html).
