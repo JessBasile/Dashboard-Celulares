@@ -695,14 +695,14 @@ La visualización gráfico de anillos sobre la cantidad vendida en la página pr
 
 La página productos tiene un segmentador creado a través de un parámetro de campo, que facilita el filtrado de la visualización del gráfico de barras agrupado, pudiendo luego, derivar a la página conclusiones aplicando ese filtro.
 
-![Atributos Cantidad Vendida](atributos.png)
+![Atributos Cantidad Vendida](imagenes/atributos.png)
 
 ---
 ***Página Clientes***
 
 La página de clientes centra su análisis en detectar la cantidad de clientes totales, activos, inactivos, la evolución de las ventas, un listado de los clientes inactivos con sus id para identificar que se trata de los clientes más recientes incorporados y la distribución geográfica de los clientes activos. Toda esa información puede ser clasificada según el tipo de cliente, para elaborar conclusiones, así como también 4 segmentadores que habilitan profundizar aún más las conclusiones.
 
-![Clientes](clientes.png)
+![Clientes](imagenes/clientes.png)
 
 ---
 ***Tooltip Ventas por Tipo de Cliente***
@@ -716,21 +716,21 @@ La visualización matríz de ventas por tipo de cliente no solo muestra las vent
 
 La visualización mapa de la página clientes no solo muestra la distribución y concentración geográfica de los clientes activos en los diferentes países, sino que, además, contiene un tooltip que expande información proporcionando el nombre del cliente, la ciudad y la ganancia total. Esto facilita identificar los ingresos que genera cada cliente según la ciudad y país al que pertenece.
 
-![Tooltip Clientes Activos](tootltip-activos.png)
+![Tooltip Clientes Activos](imagenes/tootltip-activos.png)
 
 ---
 ***Página Conclusiones***
 
 La página conclusiones muestra diversas medidas de tendencia central para su comparación y posterior interpretación. Asimismo, se exhibe la marca más vendida, la empresa de envíos más utilizada en las operaciones y la ganancia obtenida por las ventas que obtuvieron reseñas negativas. Por último, cuenta con dos top 5 de clientes para no solo ubicar los más disconformes, sino además, evaluar si son aquellos que efectúan mayor cantidad de compras.
 
-![Conclusiones](conclusiones.png)
+![Conclusiones](imagenes/conclusiones.png)
 
 ---
 ***Página Glosario***
 
 El glosario muestra información relevante para que el usuario conozca el objetivo y alcance del proyecto, así como también las definiciones clave de los íconos que aparecen en las visualizaciones y las abreviaciones que tienen algunos segmentadores creados con parámetros numéricos.
 
-![Glosario](glosario.png)
+![Glosario](imagenes/glosario.png)
 
 ---
 
