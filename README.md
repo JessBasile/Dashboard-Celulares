@@ -1,12 +1,13 @@
-## ***Proyecto Data Analytics***
-
-<img align="right" alt="Jess-perfil" width="200" src="https://github.com/JessBasile/Dashboard-Celulares/raw/main/imagenes/Jess-perfil.png">
-
-***Título del proyecto:*** Análisis de satisfacción en ventas de celulares en la empresa Europe Mobile Distributors.
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/JessBasile/Dashboard-Celulares/main/imagenes/analitycs.gif" alt="Descripción del GIF" style="max-width: 100px; height: auto;">
 </p>
+
+## ***Proyecto Data Analytics***
+
+***Título del proyecto:*** Análisis de satisfacción en ventas de celulares en la empresa Europe Mobile Distributors.
+
+<img align="right" alt="Jess-perfil" width="200" src="https://github.com/JessBasile/Dashboard-Celulares/raw/main/imagenes/Jess-perfil.png">
 
 ***Iniciativa de análisis:*** Mejora en la satisfacción de los clientes que manifiestan disconformidad.
 
