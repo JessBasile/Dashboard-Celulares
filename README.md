@@ -780,3 +780,6 @@ El dashboard no solo revela información para la toma de decisiones principalmen
 [https://miro.com/es/ ](https://miro.com/es/).
 
 [https://www.vertex42.com/ExcelTips/unicode-symbols.html](https://www.vertex42.com/ExcelTips/unicode-symbols.html).
+
+___
+<h2 align="center">¡Muchas gracias por su atención! <img src="https://github.com/ABSphreak/ABSphreak/blob/master/gifs/Hi.gif" width="30px"></h2>
