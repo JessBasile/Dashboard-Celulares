@@ -13,7 +13,7 @@
 
 ***Autora:*** Jesica Brenda Basile
 
-***Formato:*** [pdf](Proyecto-Final-Basile-Jesica-49075.pdf)
+***Formato:*** [pdf](Proyecto Final Basile Jesica 49075.pdf)
 
 ***Dashboard:*** en [PBI](Dashboard-Basile-Jesica-49075.pbix)
 
