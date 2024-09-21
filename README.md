@@ -7,9 +7,9 @@
 
 ***Título del proyecto:*** Análisis de satisfacción en ventas de celulares en la empresa Europe Mobile Distributors.
 
-<img align="right" alt="Jess-perfil" width="200" src="https://github.com/JessBasile/Dashboard-Celulares/raw/main/imagenes/Jess-perfil.png">
-
 ***Iniciativa de análisis:*** Mejora en la satisfacción de los clientes que manifiestan disconformidad.
+
+<img align="right" alt="Jess-perfil" width="200" src="https://github.com/JessBasile/Dashboard-Celulares/raw/main/imagenes/Jess-perfil.png">
 
 ***Autora:*** Jesica Brenda Basile
 
